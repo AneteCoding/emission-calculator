@@ -1,0 +1,28 @@
+curl --request POST \
+--url https://beta2.api.climatiq.io/estimate \
+--header 'Authorization: Bearer WME5QPKXTV49SKK6C6BJV1EF2JGF' \
+--data '{
+        "emission_factor": "electricity-energy_source_grid_mix",
+        "parameters":
+            {
+            "energy": 4200,
+            "energy_unit": "kWh"
+            }
+        }'
+
+        synchronosis
+
+      API KEY  WME5QPKXTV49SKK6C6BJV1EF2JGF
+
+      {"parameters":{"route":[{"from":"rix","to":"osl"},null]}}
+
+      {
+    //...
+    "parameters": {
+        "route": ["PMI", "BER"]
+    }
+    //...
+}
+
+https://rapidapi.com/marcusgoede/api/great-circle-mapper
+greatcirclemapper.p.rapidapi.com

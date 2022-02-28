@@ -1,25 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import logo from './logo.png';
+import Calculator from './Calculator';
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        <header className="App-header">
+          <img src={logo} className="App-logo img-fluid" alt="logo" />
+        </header>
+        <main>
+          <Calculator defaultKeyword="calculator" />
+        </main>
+        <footer className="App-footer">
+          <small>
+            <a href="" target="_blank" rel="noreferrer">Open source code </a>
+            by <a href="https://www.linkedin.com/in/anete-bogdanova-a5ba366a/" target="_blank" rel="noreferrer">Anete </a>
+          </small></footer>
+      </div>
     </div>
   );
 }
 
-export default App;
+
