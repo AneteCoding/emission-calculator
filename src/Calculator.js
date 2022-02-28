@@ -8,6 +8,7 @@ export default function Calculator() {
     let [co2, setCo2] = useState(null);
     let [from, setFrom] = useState(null);
     let [to, setTo] = useState(null);
+    let [distance, setDistance] = useState(null);
 
     function search() {
         let apiKey = `WME5QPKXTV49SKK6C6BJV1EF2JGF`;
@@ -26,7 +27,10 @@ export default function Calculator() {
 
         axios.post(apiUrl, data, config)
 
-            .then(handleSearch)
+            .then(data =>
+
+                setCo2(data.data.co2e)
+            );
 
     }
 
@@ -45,7 +49,7 @@ export default function Calculator() {
     //         .then(data => {
 
     //             console.log(data);
-    //             document.getElementById("distance").innerText = data.totals.distance_km
+    //     
     //         })
     //         .catch(err => {
     //             console.error(err);
@@ -57,16 +61,18 @@ export default function Calculator() {
     function handleSubmit(event) {
         event.preventDefault();
         search();
+        distance();
     }
 
-    function handleSearch(response) {
-        setCo2(response.data.co2e);
-    }
+
     function handleFrom(event) {
         setFrom(event.target.value.toUpperCase());
     }
     function handleTo(event) {
         setTo(event.target.value.toUpperCase());
+    }
+    function handleDistance(response) {
+        setDistance(response.data.totals.distance_km)
     }
 
     function load() {
@@ -87,7 +93,7 @@ export default function Calculator() {
                     <ul>
                         <li>Origin: <span id="origin"></span></li>
                         <li>Destination: <span id="destination"></span></li>
-                        <li>Distance: <span id="distance"></span>km</li>
+                        <li>Distance: <span id="distance">{distance}</span>km</li>
                         <li>Emissions: <span id="esmisions">{Math.round(co2)}</span> kg</li>
                     </ul>
                 </div>
