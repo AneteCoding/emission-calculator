@@ -5,7 +5,7 @@ import "./index.css";
 export default function Calculator() {
 
     let [loaded, setLoaded] = useState(false);
-    let [results, setResults] = useState(null);
+    let [co2, setCo2] = useState(null);
     let [from, setFrom] = useState(null);
     let [to, setTo] = useState(null);
 
@@ -17,7 +17,6 @@ export default function Calculator() {
             "parameters":
             {
                 "route": [from, to]
-
             }
         }
         const config = {
@@ -27,12 +26,32 @@ export default function Calculator() {
 
         axios.post(apiUrl, data, config)
 
-            .then(data => {
-                console.log(data)
-                handleSearch()
-            })
+            .then(handleSearch)
 
     }
+
+    // function distance() {
+    //     fetch(`https://greatcirclemapper.p.rapidapi.com/airports/route/${from}-${to}/510`, {
+    //         "method": "GET",
+    //         "headers": {
+    //             "content-type": "text/html;charset=UTF-8",
+    //             "vary": "Accept-Encoding",
+    //             "x-rapidapi-host": "greatcirclemapper.p.rapidapi.com",
+    //             "x-rapidapi-key": "371b810738msh6b3976b89e4c200p1e1728jsn4e68ed677b97"
+    //         }
+    //     })
+
+    //         .then(response => response.json())
+    //         .then(data => {
+
+    //             console.log(data);
+    //             document.getElementById("distance").innerText = data.totals.distance_km
+    //         })
+    //         .catch(err => {
+    //             console.error(err);
+    //         });
+
+    // }
 
 
     function handleSubmit(event) {
@@ -41,13 +60,13 @@ export default function Calculator() {
     }
 
     function handleSearch(response) {
-        setResults(response.data.co2e);
+        setCo2(response.data.co2e);
     }
     function handleFrom(event) {
-        setFrom(event.target.value);
+        setFrom(event.target.value.toUpperCase());
     }
     function handleTo(event) {
-        setTo(event.target.value);
+        setTo(event.target.value.toUpperCase());
     }
 
     function load() {
@@ -59,9 +78,9 @@ export default function Calculator() {
         return (
             <div className="Calculator">
                 <section>
-                    <form onSubmit={handleSubmit}>
-                        <input type="search" placeholder="FROM" className="form-control search-input" autoFocus="on" onChange={handleTo} />
-                        <input type="search" placeholder="TO" className="form-control search-input" autoFocus="on" onChange={handleFrom} />
+                    <form onSubmit={handleSubmit} className="search-form">
+                        <input type="search" placeholder="FROM" className="form-control search-input" autoFocus="on" onChange={handleFrom} />
+                        <input type="search" placeholder="TO" className="form-control search-input" autoFocus="on" onChange={handleTo} />
                     </form>
                 </section>
                 <div className="results">
@@ -69,7 +88,7 @@ export default function Calculator() {
                         <li>Origin: <span id="origin"></span></li>
                         <li>Destination: <span id="destination"></span></li>
                         <li>Distance: <span id="distance"></span>km</li>
-                        <li>Emissions: <span id="esmisions">{results}</span> kg</li>
+                        <li>Emissions: <span id="esmisions">{Math.round(co2)}</span> kg</li>
                     </ul>
                 </div>
             </div>
