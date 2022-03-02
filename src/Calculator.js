@@ -25,10 +25,10 @@ export default function Calculator() {
 
     function handleSubmit(event) {
         event.preventDefault();
-        searchFrom();
-        searchTo();
+        // searchFrom();
+        // searchTo();
         calculateCo2();
-        calculateDistance();
+        // calculateDistance();
     }
 
 

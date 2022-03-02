@@ -1,6 +1,7 @@
 import './App.css';
 import logo from './logo.png';
 import Calculator from './Calculator';
+import Airports from './Airports';
 
 export default function App() {
   return (
@@ -10,7 +11,8 @@ export default function App() {
           <img src={logo} className="App-logo img-fluid" alt="logo" />
         </header>
         <main>
-          <Calculator defaultKeyword="calculator" />
+          <Calculator />
+          <Airports />
         </main>
         <footer className="App-footer">
           <small>
