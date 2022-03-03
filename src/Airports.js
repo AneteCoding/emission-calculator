@@ -5,6 +5,23 @@ export default function Airports() {
 
     const items = [
         {
+            iata: "RIX",
+            name: "Riga"
+
+        },
+        {
+            iata: "OSL",
+            name: "Oslo"
+        },
+        {
+            iata: "LGW",
+            name: "London"
+        }
+
+    ]
+
+    const items2 = [
+        {
             EVRA: {
                 icao: "EVRA",
                 iata: "RIX",
@@ -71,15 +88,16 @@ export default function Airports() {
 
         console.log(string, results)
     }
-    const formatResult = (item) => {
-        console.log(item);
-        return (
-            <div >
-                <span> iata: {item.iata}</span>
-                <span> name: {item.name}</span>
-            </div>
-        );
-    };
+
+    // const formatResult = (item) => {
+    //     console.log(item);
+    //     return (
+    //         <div >
+    //             <span> iata: {item.iata}</span>
+    //             <span> name: {item.name}</span>
+    //         </div>
+    //     );
+    // };
 
 
     return (
@@ -87,7 +105,6 @@ export default function Airports() {
             <ReactSearchAutocomplete
                 items={items}
                 onSearch={handleOnSearch}
-                formatResult={formatResult}
                 autoFocus
             />
         </div>
