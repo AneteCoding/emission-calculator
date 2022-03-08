@@ -55,7 +55,6 @@ export default function Airports() {
             icao: "EBBR",
             name: "Brussels"
         }
-
     ]
 
 
@@ -77,14 +76,26 @@ export default function Airports() {
 
 
     return (
-        <div className='mb-5'>
+        <div className='mt-5'>
             <ReactSearchAutocomplete
+                placeholder='FROM'
+                showIcon={false}
+                items={items}
+                onSearch={handleOnSearch}
+                autoFocus
+
+            />
+            <ReactSearchAutocomplete
+                placeholder='TO'
+                showIcon={false}
                 items={items}
                 onSearch={handleOnSearch}
 
-                autoFocus
             />
+
+            <button type="submit" className='mt-3'>Search</button>
         </div>
+
     )
 
 

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./index.css";
 import { search } from "./lib/greatCircleMapper";
+import Airports from './Airports';
 
 export default function Calculator() {
 
@@ -88,13 +89,15 @@ export default function Calculator() {
 
     return (
         <div className="Calculator">
-            <section>
+            {/* <section>
                 <form onSubmit={handleSubmit} className="search-form">
                     <input type="search" placeholder="FROM" className="form-control search-input" autoFocus="on" onChange={handleFrom} />
                     <input type="search" placeholder="TO" className="form-control search-input" autoFocus="on" onChange={handleTo} />
                     <button type="submit">Search</button>
                 </form>
-            </section>
+            </section> */}
+            <Airports />
+
             <div className="results">
                 <ul>
                     <li>Origin: <span id="origin">{from}</span></li>
