@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./index.css";
+import { search } from "./lib/greatCircleMapper";
 
 export default function Calculator() {
 
@@ -24,59 +25,18 @@ export default function Calculator() {
     }
 
     function handleSubmit(event) {
-        event.preventDefault();
-        // searchFrom();
-        // searchTo();
-        calculateCo2();
+        // event.preventDefault();
+
+        // search(from).then(fromData => {
+        //     console.log(fromData);
+        //     search(to).then(toData => {
+        //         calculateCo2(toData)
+        //     });
+        // })
+        // calculateCo2();
         // calculateDistance();
     }
 
-
-    function searchFrom() {
-        fetch(`https://greatcirclemapper.p.rapidapi.com/airports/search/${from}`, {
-            "method": "GET",
-            "headers": {
-                "x-rapidapi-host": "greatcirclemapper.p.rapidapi.com",
-                "x-rapidapi-key": "371b810738msh6b3976b89e4c200p1e1728jsn4e68ed677b97"
-            }
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                setIataFrom(data.iata_code);
-                setIcaoFrom(data.icao_code);
-                setOrigin({
-                    city: data.municipality,
-                    country: data.country
-                });
-            })
-            .catch(err => {
-                console.error(err);
-            });
-    }
-
-    function searchTo() {
-        fetch(`https://greatcirclemapper.p.rapidapi.com/airports/search/${to}`, {
-            "method": "GET",
-            "headers": {
-                "x-rapidapi-host": "greatcirclemapper.p.rapidapi.com",
-                "x-rapidapi-key": "371b810738msh6b3976b89e4c200p1e1728jsn4e68ed677b97"
-            }
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                setIataTo(data.iata_code);
-                setIcaoTo(data.icao_code);
-                setDestination({
-                    city: data.municipality,
-                    country: data.country
-                });
-            })
-            .catch(err => {
-                console.error(err);
-            });
-    }
 
     function calculateDistance() {
         fetch(`https://greatcirclemapper.p.rapidapi.com/airports/route/${icaoFrom}-${icaoTo}/510`, {
