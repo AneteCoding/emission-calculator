@@ -1,3 +1,6 @@
+
+
+const airports =
 {
     "EVRA": {
         "icao": "EVRA",
@@ -22,7 +25,7 @@
         "lat": 41.2971000671,
         "lon": 2.0784599781,
         "tz": "Europe\/Madrid"
-    },"LLBG": {
+    }, "LLBG": {
         "icao": "LLBG",
         "iata": "TLV",
         "name": "Ben Gurion International Airport",
@@ -33,7 +36,7 @@
         "lat": 32.0113983154,
         "lon": 34.8866996765,
         "tz": "Asia\/Jerusalem"
-    },"EGKK": {
+    }, "EGKK": {
         "icao": "EGKK",
         "iata": "LGW",
         "name": "London Gatwick Airport",
@@ -44,7 +47,7 @@
         "lat": 51.1481018066,
         "lon": -0.1902779937,
         "tz": "Europe\/London"
-    },"LFPG": {
+    }, "LFPG": {
         "icao": "LFPG",
         "iata": "CDG",
         "name": "Charles de Gaulle International Airport",
@@ -55,7 +58,7 @@
         "lat": 49.0127983093,
         "lon": 2.5499999523,
         "tz": "Europe\/Paris"
-    },"EHAM": {
+    }, "EHAM": {
         "icao": "EHAM",
         "iata": "AMS",
         "name": "Amsterdam Airport Schiphol",
@@ -116,3 +119,5 @@
         "tz": "Europe\/Stockholm"
     }
 }
+
+export default airports;

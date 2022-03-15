@@ -1,7 +1,8 @@
 import React from 'react'
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
+import airports from './airportList';
 
-export default function Airports() {
+export default function Airports(props) {
 
     const items = [
         {
@@ -62,7 +63,21 @@ export default function Airports() {
 
         console.log(string, results)
 
+
     }
+    const handleOnSelectFrom = (item) => {
+
+        console.log(item.name)
+        props.handleFrom(item.name)
+        props.handleIata(item.iata)
+    }
+    const handleOnSelectTo = (item) => {
+
+        console.log(item.name)
+        props.handleTo(item.name)
+        props.handleIata(item.iata)
+    }
+
 
     // const formatResult = (item) => {
     //     console.log(item);
@@ -77,22 +92,28 @@ export default function Airports() {
 
     return (
         <div className='mt-5'>
-            <ReactSearchAutocomplete
-                placeholder='FROM'
-                showIcon={false}
-                items={items}
-                onSearch={handleOnSearch}
-                autoFocus
+            <div>
+                <ReactSearchAutocomplete
+                    placeholder='FROM'
+                    showIcon={false}
+                    items={items}
+                    onSearch={handleOnSearch}
+                    autoFocus
+                    onSelect={handleOnSelectFrom}
 
-            />
-            <ReactSearchAutocomplete
-                placeholder='TO'
-                showIcon={false}
-                items={items}
-                onSearch={handleOnSearch}
+                />
+            </div>
+            <div className='mt-3'>
+                <ReactSearchAutocomplete
+                    placeholder='TO'
+                    showIcon={false}
+                    items={items}
+                    onSearch={handleOnSearch}
+                    onSelect={handleOnSelectTo}
 
-            />
 
+                />
+            </div>
             <button type="submit" className='mt-3'>Search</button>
         </div>
 

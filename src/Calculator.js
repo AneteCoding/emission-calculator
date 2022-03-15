@@ -4,6 +4,7 @@ import "./index.css";
 import { search } from "./lib/greatCircleMapper";
 import Airports from './Airports';
 
+
 export default function Calculator() {
 
 
@@ -18,11 +19,16 @@ export default function Calculator() {
     let [distance, setDistance] = useState(null);
     let [co2, setCo2] = useState(null);
 
-    function handleFrom(event) {
-        setFrom(event.target.value);
+    function handleFrom(airport) {
+        setFrom(airport);
     }
-    function handleTo(event) {
-        setTo(event.target.value);
+
+    function handleTo(airport) {
+        setTo(airport);
+    }
+    function handleIata(airport) {
+        setIataFrom(airport);
+        setIataTo(airport);
     }
 
     function handleSubmit(event) {
@@ -34,7 +40,7 @@ export default function Calculator() {
         //         calculateCo2(toData)
         //     });
         // })
-        // calculateCo2();
+        calculateCo2();
         // calculateDistance();
     }
 
@@ -96,7 +102,7 @@ export default function Calculator() {
                     <button type="submit">Search</button>
                 </form>
             </section> */}
-            <Airports />
+            <Airports handleFrom={handleFrom} handleTo={handleTo} />
 
             <div className="results">
                 <ul>
