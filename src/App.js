@@ -8,7 +8,7 @@ export default function App() {
     <div className="App">
       <div className="container">
         <header className="App-header">
-          <img src={logo} className="App-logo img-fluid" alt="logo" />
+          <img src={logo} className="logo" alt="logo" />
         </header>
         <main>
 
@@ -16,10 +16,11 @@ export default function App() {
 
         </main>
         <footer className="App-footer">
-          <small>
+          {/* <small>
             <a href="" target="_blank" rel="noreferrer">Open source code </a>
             by <a href="https://www.linkedin.com/in/anete-bogdanova-a5ba366a/" target="_blank" rel="noreferrer">Anete </a>
-          </small></footer>
+          </small> */}
+        </footer>
       </div>
     </div>
   );

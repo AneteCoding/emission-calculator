@@ -62,59 +62,51 @@ export default function Airports(props) {
     const handleOnSearch = (string, results) => {
 
         console.log(string, results)
-
-
     }
     const handleOnSelectFrom = (item) => {
 
         console.log(item.name)
         props.handleFrom(item.name)
-        props.handleIata(item.iata)
+        props.handleIataFrom(item.iata)
     }
     const handleOnSelectTo = (item) => {
 
         console.log(item.name)
         props.handleTo(item.name)
-        props.handleIata(item.iata)
+        props.handleIataTo(item.iata)
     }
 
-
-    // const formatResult = (item) => {
-    //     console.log(item);
-    //     return (
-    //         <div >
-    //             <h3>iata: {item.iata}</h3>
-    //             <h3>name: {item.name}</h3>
-    //         </div>
-    //     );
-    // };
 
 
     return (
         <div className='mt-5'>
-            <div>
-                <ReactSearchAutocomplete
-                    placeholder='FROM'
-                    showIcon={false}
-                    items={items}
-                    onSearch={handleOnSearch}
-                    autoFocus
-                    onSelect={handleOnSelectFrom}
+            <form onSubmit={props.handleSubmit}>
+                <div>
+                    <ReactSearchAutocomplete
+                        placeholder='FROM'
+                        showIcon={false}
+                        items={items}
+                        autoFocus
+                        onSearch={handleOnSearch}
+                        onSelect={handleOnSelectFrom}
 
-                />
-            </div>
-            <div className='mt-3'>
-                <ReactSearchAutocomplete
-                    placeholder='TO'
-                    showIcon={false}
-                    items={items}
-                    onSearch={handleOnSearch}
-                    onSelect={handleOnSelectTo}
+                    />
+                </div>
+                <div className='mt-3'>
+                    <ReactSearchAutocomplete
+                        placeholder='TO'
+                        showIcon={false}
+                        items={items}
+                        onSearch={handleOnSearch}
+                        onSelect={handleOnSelectTo}
 
 
-                />
-            </div>
-            <button type="submit" className='mt-3'>Search</button>
+                    />
+                </div>
+                <div className='text-center'>
+                    <button type="submit" className='btn btn-success mt-3'>Search</button>
+                </div>
+            </form>
         </div>
 
     )

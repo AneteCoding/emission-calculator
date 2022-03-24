@@ -7,15 +7,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
 .Calculator section {
   background: white;
   border-radius: 6px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 10%);
   margin: 20px 0;
   padding: 30px;
+}
+.logo {
+  max-width: 40%;
+  display: block;
+  margin: 0 auto;
+}
+.results {
+  list-style: none;
 }

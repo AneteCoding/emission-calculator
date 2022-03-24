@@ -8,8 +8,6 @@ import Airports from './Airports';
 export default function Calculator() {
 
 
-    let [origin, setOrigin] = useState(null);
-    let [destination, setDestination] = useState(null);
     let [from, setFrom] = useState(null);
     let [iataFrom, setIataFrom] = useState(null);
     let [icaoFrom, setIcaoFrom] = useState(null);
@@ -26,8 +24,11 @@ export default function Calculator() {
     function handleTo(airport) {
         setTo(airport);
     }
-    function handleIata(airport) {
+    function handleIataFrom(airport) {
         setIataFrom(airport);
+    }
+
+    function handleIataTo(airport) {
         setIataTo(airport);
     }
 
@@ -40,6 +41,8 @@ export default function Calculator() {
         //         calculateCo2(toData)
         //     });
         // })
+
+
         calculateCo2();
         // calculateDistance();
     }
@@ -102,10 +105,10 @@ export default function Calculator() {
                     <button type="submit">Search</button>
                 </form>
             </section> */}
-            <Airports handleFrom={handleFrom} handleTo={handleTo} />
+            <Airports handleFrom={handleFrom} handleTo={handleTo} handleIataFrom={handleIataFrom} handleIataTo={handleIataTo} handleSubmit={handleSubmit} />
 
-            <div className="results">
-                <ul>
+            <div >
+                <ul className="results">
                     <li>Origin: <span id="origin">{from}</span></li>
                     <li>Destination: <span id="destination">{to}</span></li>
                     <li>Distance: <span id="distance">{Math.round(distance)}</span> km</li>
