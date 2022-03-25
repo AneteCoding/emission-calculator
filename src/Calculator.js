@@ -32,7 +32,7 @@ export default function Calculator() {
         setIataTo(airport);
     }
 
-    function handleSubmit(event) {
+    function handleSubmit() {
         // event.preventDefault();
 
         // search(from).then(fromData => {
