@@ -3,6 +3,7 @@ import axios from "axios";
 import "./index.css";
 import { search } from "./lib/greatCircleMapper";
 import Airports from './Airports';
+import AirportInput from './AirportInput';
 
 
 export default function Calculator() {
@@ -105,7 +106,10 @@ export default function Calculator() {
                     <button type="submit">Search</button>
                 </form>
             </section> */}
-            <Airports handleFrom={handleFrom} handleTo={handleTo} handleIataFrom={handleIataFrom} handleIataTo={handleIataTo} handleSubmit={handleSubmit} />
+            {/* <Airports handleFrom={handleFrom} handleTo={handleTo} handleIataFrom={handleIataFrom} handleIataTo={handleIataTo} handleSubmit={handleSubmit} /> */}
+            <AirportInput placeholder="FROM" handleFrom={handleFrom} handleIataFrom={handleIataFrom} />
+            {/* <AirportInput placeholder="TO" onSelect={ } /> */}
+            <button onClick={calculateCo2}> Search </button>
 
             <div >
                 <ul className="results">

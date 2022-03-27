@@ -85,7 +85,7 @@ export default function Airports(props) {
 
             <div>
                 <ReactSearchAutocomplete
-                    placeholder='FROM'
+                    placeholder={props.placeholder}
                     showIcon={false}
                     items={items}
                     autoFocus
@@ -94,17 +94,7 @@ export default function Airports(props) {
 
                 />
             </div>
-            <div className='mt-3'>
-                <ReactSearchAutocomplete
-                    placeholder='TO'
-                    showIcon={false}
-                    items={items}
-                    onSearch={handleOnSearch}
-                    onSelect={handleOnSelectTo}
 
-
-                />
-            </div>
 
         </div>
 
