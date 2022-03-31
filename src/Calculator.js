@@ -18,35 +18,6 @@ export default function Calculator() {
     let [distance, setDistance] = useState(null);
     let [co2, setCo2] = useState(null);
 
-    function handleFrom(airport) {
-        setFrom(airport);
-    }
-
-    function handleTo(airport) {
-        setTo(airport);
-    }
-    function handleIataFrom(airport) {
-        setIataFrom(airport);
-    }
-
-    function handleIataTo(airport) {
-        setIataTo(airport);
-    }
-
-    function handleSubmit() {
-        // event.preventDefault();
-
-        // search(from).then(fromData => {
-        //     console.log(fromData);
-        //     search(to).then(toData => {
-        //         calculateCo2(toData)
-        //     });
-        // })
-
-
-        calculateCo2();
-        // calculateDistance();
-    }
 
 
     function calculateDistance() {
@@ -99,17 +70,10 @@ export default function Calculator() {
 
     return (
         <div className="Calculator">
-            {/* <section>
-                <form onSubmit={handleSubmit} className="search-form">
-                    <input type="search" placeholder="FROM" className="form-control search-input" autoFocus="on" onChange={handleFrom} />
-                    <input type="search" placeholder="TO" className="form-control search-input" autoFocus="on" onChange={handleTo} />
-                    <button type="submit">Search</button>
-                </form>
-            </section> */}
             {/* <Airports handleFrom={handleFrom} handleTo={handleTo} handleIataFrom={handleIataFrom} handleIataTo={handleIataTo} handleSubmit={handleSubmit} /> */}
-            <AirportInput placeholder="FROM" handleFrom={handleFrom} handleIataFrom={handleIataFrom} />
-            {/* <AirportInput placeholder="TO" onSelect={ } /> */}
-            <button onClick={calculateCo2}> Search </button>
+            <AirportInput placeholder="FROM" handleFrom={setFrom} handleIataFrom={setIataFrom} handleIcaoFrom={setIcaoFrom} />
+            <AirportInput placeholder="TO" handleTo={setTo} handleIataTo={setIataTo} handleIcaoTo={setIcaoTo} />
+            <button onClick={calculateCo2} className="btn btn-success mt-3"> Search </button>
 
             <div >
                 <ul className="results">

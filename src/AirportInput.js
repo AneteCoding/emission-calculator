@@ -2,83 +2,24 @@ import React from 'react'
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 import airports from './airportList';
 
-export default function Airports(props) {
+export default function AirportInput(props) {
 
-
-
-    const items = [
-        {
-            iata: "RIX",
-            icao: "EVRA",
-            name: "Riga"
-
-        },
-        {
-            iata: "OSL",
-            icao: "ENGM",
-            name: "Oslo"
-        },
-        {
-            iata: "LGW",
-            icao: "EGKK",
-            name: "London"
-        },
-        {
-            iata: "CDG",
-            icao: "LFPG",
-            name: "Paris"
-        },
-        {
-            iata: "TLV",
-            icao: "LLBG",
-            name: "Tel Aviv"
-        },
-        {
-            iata: "BCN",
-            icao: "LEBL",
-            name: "Barcelona"
-        },
-        {
-            iata: "ARN",
-            icao: "ESSA",
-            name: "Stockholm"
-        },
-        {
-            iata: "FCO",
-            icao: "LIRF",
-            name: "Rome"
-        },
-        {
-            iata: "AMS",
-            icao: "EHAM",
-            name: "Amsterdam"
-        },
-        {
-            iata: "BRU",
-            icao: "EBBR",
-            name: "Brussels"
-        }
-    ]
-
+    const items = airports;
 
     const handleOnSearch = (string, results) => {
 
         console.log(string, results)
     }
-    const handleOnSelectFrom = (item) => {
+    const handleOnSelect = (item) => {
 
         console.log(item.name)
         props.handleFrom(item.name)
         props.handleIataFrom(item.iata)
-    }
-    const handleOnSelectTo = (item) => {
-
-        console.log(item.name)
         props.handleTo(item.name)
         props.handleIataTo(item.iata)
+        props.handleIcaoFrom(item.icao)
+        props.handleIcaoTo(item.icao)
     }
-
-
 
     return (
         <div className='mt-5'>
@@ -88,13 +29,11 @@ export default function Airports(props) {
                     placeholder={props.placeholder}
                     showIcon={false}
                     items={items}
-                    autoFocus
+                    // autoFocus
                     onSearch={handleOnSearch}
-                    onSelect={handleOnSelectFrom}
-
+                    onSelect={handleOnSelect}
                 />
             </div>
-
 
         </div>
 

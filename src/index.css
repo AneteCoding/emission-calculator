@@ -22,3 +22,8 @@ body {
 .results {
   list-style: none;
 }
+
+.btn {
+  display: block;
+  margin: 0 auto;
+}
