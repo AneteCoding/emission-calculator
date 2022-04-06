@@ -4,7 +4,6 @@ import airports from './airportList';
 
 export default function AirportInput(props) {
 
-    const items = airports;
 
     const handleOnSearch = (string, results) => {
 
@@ -28,7 +27,7 @@ export default function AirportInput(props) {
                 <ReactSearchAutocomplete
                     placeholder={props.placeholder}
                     showIcon={false}
-                    items={items}
+                    items={airports}
                     // autoFocus
                     onSearch={handleOnSearch}
                     onSelect={handleOnSelect}
