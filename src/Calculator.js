@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./index.css";
-import { search } from "./lib/greatCircleMapper";
-import Airports from './Airports';
 import AirportInput from './AirportInput';
 
 
@@ -66,13 +64,26 @@ export default function Calculator() {
             );
     }
 
+    const onSelectFrom = (item) => {
 
+        setFrom(item.name);
+        setIataFrom(item.iata);
+        setIcaoFrom(item.icao);
+
+    }
+
+    const onSelectTo = (item) => {
+
+        setTo(item.name);
+        setIataTo(item.iata);
+        setIcaoTo(item.icao);
+
+    }
 
     return (
         <div className="Calculator">
-            {/* <Airports handleFrom={handleFrom} handleTo={handleTo} handleIataFrom={handleIataFrom} handleIataTo={handleIataTo} handleSubmit={handleSubmit} /> */}
-            <AirportInput placeholder="FROM" handleName={setFrom} handleIata={setIataFrom} handleIcao={setIcaoFrom} />
-            <AirportInput placeholder="TO" handleName={setTo} handleIata={setIataTo} handleIcao={setIcaoTo} />
+            <AirportInput placeholder="FROM" onSelect={onSelectFrom} />
+            <AirportInput placeholder="TO" onSelect={onSelectTo} />
             <button onClick={calculateCo2} className="btn btn-success mt-3"> Search </button>
 
             <div >

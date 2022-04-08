@@ -9,13 +9,7 @@ export default function AirportInput(props) {
 
         console.log(string, results)
     }
-    const handleOnSelect = (item) => {
 
-        console.log(item.name)
-        props.handleName(item.name)
-        props.handleIata(item.iata)
-        props.handleIcao(item.icao)
-    }
 
     return (
         <div className='mt-5'>
@@ -27,7 +21,7 @@ export default function AirportInput(props) {
                     items={airports}
                     // autoFocus
                     onSearch={handleOnSearch}
-                    onSelect={handleOnSelect}
+                    onSelect={props.onSelect}
                 />
             </div>
 
