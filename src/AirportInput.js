@@ -12,12 +12,9 @@ export default function AirportInput(props) {
     const handleOnSelect = (item) => {
 
         console.log(item.name)
-        props.handleFrom(item.name)
-        props.handleIataFrom(item.iata)
-        props.handleTo(item.name)
-        props.handleIataTo(item.iata)
-        props.handleIcaoFrom(item.icao)
-        props.handleIcaoTo(item.icao)
+        props.handleName(item.name)
+        props.handleIata(item.iata)
+        props.handleIcao(item.icao)
     }
 
     return (

@@ -71,8 +71,8 @@ export default function Calculator() {
     return (
         <div className="Calculator">
             {/* <Airports handleFrom={handleFrom} handleTo={handleTo} handleIataFrom={handleIataFrom} handleIataTo={handleIataTo} handleSubmit={handleSubmit} /> */}
-            <AirportInput placeholder="FROM" handleFrom={setFrom} handleIataFrom={setIataFrom} handleIcaoFrom={setIcaoFrom} />
-            <AirportInput placeholder="TO" handleTo={setTo} handleIataTo={setIataTo} handleIcaoTo={setIcaoTo} />
+            <AirportInput placeholder="FROM" handleName={setFrom} handleIata={setIataFrom} handleIcao={setIcaoFrom} />
+            <AirportInput placeholder="TO" handleName={setTo} handleIata={setIataTo} handleIcao={setIcaoTo} />
             <button onClick={calculateCo2} className="btn btn-success mt-3"> Search </button>
 
             <div >
