@@ -80,11 +80,18 @@ export default function Calculator() {
 
     }
 
+    function displayResults() {
+        calculateCo2();
+        // calculateDistance();
+
+
+    }
+
     return (
         <div className="Calculator">
             <AirportInput placeholder="FROM" onSelect={onSelectFrom} />
             <AirportInput placeholder="TO" onSelect={onSelectTo} />
-            <button onClick={calculateCo2} className="btn btn-success mt-3"> Search </button>
+            <button onClick={displayResults} className="btn btn-success mt-3"> Search </button>
 
             <div >
                 <ul className="results">
