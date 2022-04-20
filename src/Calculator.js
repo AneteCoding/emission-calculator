@@ -83,7 +83,7 @@ export default function Calculator() {
 
     function displayResults() {
         calculateCo2();
-        // calculateDistance();
+        calculateDistance();
 
 
     }
