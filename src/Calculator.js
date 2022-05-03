@@ -83,18 +83,26 @@ export default function Calculator() {
 
     function displayResults() {
         calculateCo2();
-        calculateDistance();
+        // calculateDistance();
 
 
     }
 
     return (
         <div className="Calculator">
-            <AirportInput placeholder="FROM" onSelect={onSelectFrom} />
-            <AirportInput placeholder="TO" onSelect={onSelectTo} />
-            <button onClick={displayResults} className="btn btn-success mt-3"> Search </button>
+            <div className="row">
+                <div className="col mt-3">
+                    <AirportInput placeholder="Origin" onSelect={onSelectFrom} />
+                </div>
+                <div className="col mt-3">
+                    <AirportInput placeholder="Destination" onSelect={onSelectTo} />
+                </div>
+                <div className="col">
+                    <button onClick={displayResults} className="btn btn-success mt-3"> Search </button>
+                </div>
+            </div>
 
-            <div >
+            <div className="mt-3 d-flex justify-content-center">
                 <ul className="results">
                     <li>Origin: <span id="origin">{from}</span></li>
                     <li>Destination: <span id="destination">{to}</span></li>
